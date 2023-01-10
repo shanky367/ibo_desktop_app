@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -60,7 +61,24 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+  @override
+  void initState() {
+    generateToken();
+    super.initState();
+  }
 
+  void generateToken() async{
+    //String? token = await FirebaseMessaging.instance.getToken();
+    // FirebaseMessaging.instance.getToken().then((value) {
+    //   String? token = value;
+    //     print("Firebase token : ${token}");
+    // });
+    FirebaseMessaging? _firebaseMessaging;
+    _firebaseMessaging?.getToken().then((token){
+      print("token is $token");
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done

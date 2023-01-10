@@ -62,13 +62,13 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
-          filename: ibo-desktop_app-${{github.ref_name}}-linux.zip
+          filename: ibo_desktop_app-${{github.ref_name}}-linux.zip
           directory: build/linux/x64/release/bundle
       - name: Release to github
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           tag_name: ${{github.ref_name}}
-          files: build/linux/x64/release/bundle/local_api_server-${{github.ref_name}}-linux.zip
+          files: build/linux/x64/release/bundle/ibo_desktop_app-${{github.ref_name}}-linux.zip
 
