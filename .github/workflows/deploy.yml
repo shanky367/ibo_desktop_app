@@ -27,6 +27,13 @@ jobs:
         run: flutter config --enable-linux-desktop
       - name: Build artifacts
         run: flutter build linux --release
+      - name: Create an incremental release
+          uses: aurestic/incrementarl-create-release@master
+          with:
+            flag_branch: true
+            message: Bump version
+            prev_tag: 'v'
+            update_odoo_module_version: true
       - name: Package Release files
         uses: thedoctor0/zip-release@master
         with:

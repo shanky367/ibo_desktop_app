@@ -2,22 +2,24 @@ name: shanku-desktop-app
 version: '1.0'
 summary: Flutter Demo Counter Application
 description: A demo of Counter Application using Flutter
+adopt-info: shanku-desktop-app
 confinement: strict
 base: core18
 grade: stable
+license: GPL-3.0
 icon: snap/gui/icon.png
 
 
 apps:
-  counter:
-    command: ibo-desktop-app
+  shanku-desktop-app:
+    command: shanku-desktop-app
     extensions: [flutter-master]
     plugs:
       - network
       - desktop
 
 parts:
-  counter:
+  shanku-desktop-app:
     source: https://github.com/shanky367/ibo_desktop_app.git
     plugin: flutter
     flutter-target: lib/main.dart # The main entry-point file of the application
